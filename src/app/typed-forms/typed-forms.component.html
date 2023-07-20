@@ -1,0 +1,87 @@
+<section class="hero has-background-link">
+  <div class="hero-body">
+    <p class="title has-text-white">Typed Forms</p>
+    <p class="subtitle has-text-white has-text-weight-light">
+      O intuito dessa página é mostrar o funcionamento do typed forms.
+    </p>
+  </div>
+</section>
+<!-- {{ formMensagem | json }} -->
+<form [formGroup]="formMensagem" (ngSubmit)="enviar()">
+  <div class="columns mt-3">
+    <div class="column">
+      <div class="field">
+        <label class="label">Nome</label>
+        <div class="control has-icons-left has-icons-right">
+          <input
+            class="input"
+            type="text"
+            placeholder="Defina um nome para a mensagem"
+            formControlName="nome"
+          />
+          <span class="icon is-small is-left">
+            <i class="fa fa-user"></i>
+          </span>
+        </div>
+      </div>
+      <div class="field">
+        <label class="label">Email</label>
+        <div class="control has-icons-left has-icons-right">
+          <input
+            class="input"
+            type="email"
+            placeholder="Defina o e-mail da mensagem"
+            formControlName="email"
+          />
+          <span class="icon is-small is-left">
+            <i class="fa fa-envelope"></i>
+          </span>
+        </div>
+      </div>
+
+    </div>
+    <div class="column">
+      <div class="field">
+        <label class="label">Mensagem</label>
+        <div class="control">
+          <textarea
+            class="textarea"
+            placeholder="Digite uma breve mensagem"
+            formControlName="mensagem"
+          ></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="columns">
+    <div class="column">
+      <div class="field">
+        <div class="control">
+          <label class="checkbox">
+            <input type="checkbox" formControlName="aceitoTermos" />
+            Eu declaro que aceito os <a href="#">termos e condições</a>.
+          </label>
+        </div>
+      </div>
+
+      <div class="field is-grouped">
+        <div class="control">
+          <button class="button is-link is-light">
+            <span class="icon is-small">
+              <i class="fa fa-eraser"></i>
+            </span>
+            <span>Limpar</span>
+          </button>
+        </div>
+        <div class="control">
+          <button type="submit" [disabled]="!formMensagem.valid" class="button is-link">
+            <span class="icon is-small">
+              <i class="fa fa-check"></i>
+            </span>
+            <span>Enviar</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
