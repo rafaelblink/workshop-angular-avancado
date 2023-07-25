@@ -1,20 +1,24 @@
 import { Component, OnInit } from '@angular/core';
-import { AttackOnTitanServiceService } from './services/attack-on-titan-service.service';
-import { Observable } from 'rxjs';
+
+import { Observable, catchError, of, throwError } from 'rxjs';
+import { BeersService } from './services/beers.service';
+import { IBeer } from './interfaces/beer';
 
 @Component({
   selector: 'app-async-pipe',
   templateUrl: './async-pipe.component.html',
-  styleUrls: ['./async-pipe.component.scss']
+  styleUrls: ['./async-pipe.component.scss'],
 })
 export class AsyncPipeComponent implements OnInit {
+  todasCervejas$!: Observable<IBeer[]>;
 
-  allTitans$!: Observable<any>;
-
-  constructor(readonly attackTitanService: AttackOnTitanServiceService) { }
+  constructor(readonly beersService: BeersService) {}
 
   ngOnInit(): void {
-    this.attackTitanService.getAll().subscribe(obj => console.log(obj));
+    this.todasCervejas$ = this.beersService.buscarTodasCervejas().pipe(
+      catchError((err) => {
+        return throwError(() => console.error(err));
+      })
+    );
   }
-
 }

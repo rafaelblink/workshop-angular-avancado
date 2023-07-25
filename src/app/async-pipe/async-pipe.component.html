@@ -1,1 +1,35 @@
-<p>async-pipe works!</p>
+<section class="hero has-background-dark">
+  <div class="hero-body">
+    <p class="title has-text-white">Async pipe</p>
+    <p class="subtitle has-text-white has-text-weight-light">
+      Apenas uma demonstração simples de uma home page.
+    </p>
+  </div>
+</section>
+<div class="columns is-multiline is-desktop mt-3 mb-3">
+  <div *ngFor="let cerveja of todasCervejas$ | async" class="column is-one-quarter">
+    <div class="card" style="height: 100%;">
+      <div class="card-image">
+        <figure class="image is-4by3">
+          <img
+            [src]="cerveja.image_url"
+            alt="Placeholder image"
+          />
+        </figure>
+      </div>
+      <div class="card-content">
+        <div class="media">
+
+          <div class="media-content">
+            <p class="title is-4">{{cerveja.name}}</p>
+            <p class="subtitle subtitle-content is-6">{{cerveja.tagline}}</p>
+          </div>
+        </div>
+
+        <div class="content">
+          {{cerveja.description}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

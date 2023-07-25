@@ -66,7 +66,7 @@
 
       <div class="field is-grouped">
         <div class="control">
-          <button class="button is-link is-light">
+          <button type="button" class="button is-link is-light" (click)="limparForm()">
             <span class="icon is-small">
               <i class="fa fa-eraser"></i>
             </span>
@@ -82,6 +82,28 @@
           </button>
         </div>
       </div>
+    </div>
+  </div>
+  <div *ngIf="mensagens.length" class="columns">
+    <div class="column">
+      <nav class="panel is-link">
+        <p class="panel-heading">
+          Mensagens enviadas
+        </p>
+
+
+        <a *ngFor="let mensagem of mensagens" class="panel-block is-active" (click)="exibirMensagem(mensagem)">
+          <span class="panel-icon">
+            <i class="fa fa-check" aria-hidden="true"></i>
+          </span>
+          {{mensagem.nome}} - {{mensagem.email}}
+        </a>
+        <div class="panel-block">
+          <button class="button is-link is-outlined is-fullwidth" (click)="limparMensagens()">
+            Remover histórico
+          </button>
+        </div>
+      </nav>
     </div>
   </div>
 </form>

@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { AsyncPipeRoutingModule } from './async-pipe-routing.module';
 import { AsyncPipeComponent } from './async-pipe.component';
-import { AttackOnTitanServiceService } from './services/attack-on-titan-service.service';
 import { HttpClientModule } from '@angular/common/http';
+import { BeersService } from './services/beers.service';
 
 
 @NgModule({
@@ -16,6 +16,6 @@ import { HttpClientModule } from '@angular/common/http';
     AsyncPipeRoutingModule,
     HttpClientModule
   ],
-  providers: [AttackOnTitanServiceService]
+  providers: [BeersService]
 })
 export class AsyncPipeModule { }

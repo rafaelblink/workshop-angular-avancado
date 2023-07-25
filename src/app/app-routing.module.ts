@@ -8,7 +8,7 @@ const routes: Routes = [
   { path: 'typed-forms', component: TypedFormsComponent,  },
   { path: 'lazy-loading', loadChildren: () => import('./lazy-loading/lazy-loading.module').then(m => m.LazyLoadingModule) },
   { path: 'async-pipe', loadChildren: () => import('./async-pipe/async-pipe.module').then(m => m.AsyncPipeModule) },
-
+  { path: 'standalone', loadComponent: () => import('./standalone/standalone.component').then(c => c.StandaloneComponent)},
 ];
 
 @NgModule({

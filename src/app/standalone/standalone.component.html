@@ -1,0 +1,77 @@
+<section class="hero has-background-primary">
+  <div class="hero-body">
+    <p class="title has-text-white">Standalone</p>
+    <p class="subtitle has-text-white has-text-weight-light">
+      O intuito dessa página é mostrar o pré-carregamento do AppModule por
+      completo.
+    </p>
+  </div>
+</section>
+
+<div *ngIf="ipData$ | async as meusDados" class="columns is-multiline is-desktop mt-3 mb-3">
+  <div class="column">
+    <article class="message is-primary">
+      <div class="message-header">
+        <p>Localização</p>
+        <button class="delete" aria-label="delete"></button>
+      </div>
+      <div class="message-body">
+        <div class="columns is-multiline">
+          <div class="column">
+            <b>Continente:</b>
+            <p>{{meusDados.continent}}</p>
+          </div>
+          <div class="column">
+            <b>País:</b>
+            <p>{{meusDados.country}}</p>
+          </div>
+        </div>
+        <div class="columns is-multiline">
+          <div class="column">
+            <b>Estado:</b>
+            <p>{{meusDados.regionName}}</p>
+          </div>
+          <div class="column">
+            <b>Cidade:</b>
+            <p>{{meusDados.city}}</p>
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+  <div class="column">
+    <article class="message is-primary">
+      <div class="message-header">
+        <p>Mapa</p>
+        <button class="delete" aria-label="delete"></button>
+      </div>
+      <div class="message-body">
+        <div class="columns">
+          <div class="column">
+            <img src="../../assets/map.png" />
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+  <div class="column">
+    <article class="message is-primary">
+      <div class="message-header">
+        <p>Operadora</p>
+        <button class="delete" aria-label="delete"></button>
+      </div>
+      <div class="message-body">
+        <div class="columns is-multiline">
+          <div class="column">
+            <b>Nome:</b>
+            <p>{{meusDados.isp}}</p>
+          </div>
+          <div class="column">
+            <b>Organização:</b>
+            <p>{{meusDados.org}}</p>
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+</div>
